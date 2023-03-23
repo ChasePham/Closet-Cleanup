@@ -1,0 +1,37 @@
+{   
+    "manifest_version": 1,
+    "name": "Sus Retail",
+    "description": "Convergent project",
+    "version": "1.0",
+
+    "icons": {
+      
+    },
+
+    "action": {
+      "default_popup": "html/popup.html"
+    },
+
+    "background": {
+      "service_worker": "js/background.js"
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": [ "js/content.js" ]
+      }
+     ],
+
+    "options_page": "html/options.html",
+
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "scripting"
+    ],
+
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
