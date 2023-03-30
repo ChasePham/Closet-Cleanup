@@ -1,5 +1,5 @@
 // Nothing to see here! But feel free to write a background script if you wish to have a backend environment for your chrome extension.
-chrome.contextMenus.create({
+/*chrome.contextMenus.create({
     title: "Reverse Image Search",
     contexts: ["image"],
     onclick: function(info, tab) {
@@ -17,4 +17,4 @@ chrome.contextMenus.create({
       xhr.send();
     }
   });
-  
+  */
