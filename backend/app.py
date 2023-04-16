@@ -5,8 +5,8 @@ from serpapi import GoogleSearch
 import os, json
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
+@app.route('/data')
+def get_data():
     params = {
      "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
      "engine": "google",
@@ -59,6 +59,18 @@ def hello():
     # print(image_results)
     # print(image_source_links)
     # print(len(image_results))
+
+    fast_fashion_brands = ['larelaxed','wearwell','veneka','freespiritbrand',
+    'etica','knickey','eclipse','harvestandmill','thestandardstich',
+    'nube','triarchy','melissajoymanning','duchxfashion',
+    'mariclaro','fairindigo','vegasrabbit',
+    'walkinthroughflowers','christydawn','yesfriends','teemill',
+    'wheredoesitcomefrom','mantisworld','silk-genie','kohr',
+    'peopletree','blufruit','cultthread','dedicated',
+    'anneherimine','ironroots','mudjeans','bluesuit','thela',
+    'orbasics','swedishstockings','armedangels','intoadesign',
+    'nudiajeans','lilianvontrapp','silentwaveindigo','appleoakfibreworks',
+    'jackfruit','etiko','flarestreet','citizenwolf','joyya','commongood','rupahus','dorsu','nonasties']
 
     return pd.DataFrame({'img_pic': image_results, 'img_source_link': image_source_links}).to_json()
 
