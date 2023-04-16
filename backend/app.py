@@ -60,7 +60,7 @@ def get_data():
     # print(image_source_links)
     # print(len(image_results))
 
-    fast_fashion_brands = ['larelaxed','wearwell','veneka','freespiritbrand',
+    ethical_brands = ['larelaxed','wearwell','veneka','freespiritbrand',
     'etica','knickey','eclipse','harvestandmill','thestandardstich',
     'nube','triarchy','melissajoymanning','duchxfashion',
     'mariclaro','fairindigo','vegasrabbit',
