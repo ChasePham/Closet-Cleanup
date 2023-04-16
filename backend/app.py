@@ -71,8 +71,20 @@ def get_data():
     'orbasics','swedishstockings','armedangels','intoadesign',
     'nudiajeans','lilianvontrapp','silentwaveindigo','appleoakfibreworks',
     'jackfruit','etiko','flarestreet','citizenwolf','joyya','commongood','rupahus','dorsu','nonasties']
+    
+    image_results_final = []
+    image_source_links_final = []
 
-    return pd.DataFrame({'img_pic': image_results, 'img_source_link': image_source_links}).to_json()
+    #FIXME Test this to fix if it works. To test, input the top two list above this one into the data frame return statement
+    for i in range(len(image_source_links)):
+        current = image_source_links[i].lower()
+        for j in range(len(ethical_brands)):
+            if ethical_brands[j] in current:
+                image_results_final.append(image_results[i])
+                image_source_links_final.append(image_source_links[i])
+                break
+        
+    return pd.DataFrame({'img_pic': image_results_final, 'img_source_link': image_source_links_final}).to_json()
 
     # Will most likely need a large list containing the most sustainable clothing brands OR a list containing non-sustainable clothes. (2 ways to do this)
 
