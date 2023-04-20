@@ -70,7 +70,24 @@ def get_data():
     'anneherimine','ironroots','mudjeans','bluesuit','thela',
     'orbasics','swedishstockings','armedangels','intoadesign',
     'nudiajeans','lilianvontrapp','silentwaveindigo','appleoakfibreworks',
-    'jackfruit','etiko','flarestreet','citizenwolf','joyya','commongood','rupahus','dorsu','nonasties']
+    'jackfruit','etiko','flarestreet','citizenwolf','joyya','commongood',
+    'rupahus','dorsu','nonasties', 'thunderpants','yesfriends',
+    'monsoonblooms','mayamiko','larelaxed','bleed','etica',
+    'unrobe','vatter','dedicated','teemill','bhumi','senseorganics','knickey',
+    'wheredoesitcomefrom','eclipse','etiko',
+    'ironroots','sealand','mudjeans','kalaurie',
+    'milavert','rapanui','jackalo','dorsu','noctu',
+    'mantisworld','thestandardstitch','dharmabums','nube',
+    'thercollective','bonlabel','leftedit',
+    'charleeswim','thetintycloset','nonasties',
+    'flarestreet','silkgenie','passionline',
+    'citizenwolf','joyya','tonle','thesocialstudio','dawndenim',
+    'reflectstudio','kampos','peopletree','mightygoodbasics',
+    'armedangels','papiidesign','hopaal','philandlui',
+    'twodaysoff','kingsofindigo','rozenbroek',
+    'livingcrafts','recreate','organicbasics','nisa',
+    'carlieballard','zerowastedaniel','blufruit','nudiejeans',
+    'aestethiclondon','phyne','littleyellowbird']
     
     image_results_final = []
     image_source_links_final = []
