@@ -87,7 +87,9 @@ def get_data():
     'twodaysoff','kingsofindigo','rozenbroek',
     'livingcrafts','recreate','organicbasics','nisa',
     'carlieballard','zerowastedaniel','blufruit','nudiejeans',
-    'aestethiclondon','phyne','littleyellowbird']
+    'aestethiclondon','phyne','littleyellowbird','culthread',
+    'duchxfashion','seeker','panamunaproject','annehermine',
+    'nightswim','thegoodtee','fairindigo']
     
     image_results_final = []
     image_source_links_final = []
