@@ -45,14 +45,13 @@ def get_data():
                     image_source_links.append(curr_link)
 
             # Limit to how many similar clothing items we want
-            if len(image_results) == 10:
+            if len(image_results) == 500:
              break
-
             params['ijn'] += 1
         else:
             break
     # Same as above
-        if len(image_results) == 10:
+        if len(image_results) == 500:
             break
 
 
