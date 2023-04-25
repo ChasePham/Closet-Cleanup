@@ -83,10 +83,12 @@ def get_data():
             if source in ethical_brands:
                 thumbnails.append(current_thumbnail)
                 product_links.append(current_link)
-
-    print(json.dumps(product_links, indent=2, ensure_ascii=False)) 
     
-    return (json.dumps(product_links, indent=2, ensure_ascii=False))
+    # Return list format: First index are the thumbnails while the second index are the product links
+    result = [thumbnails,product_links]
+    print(json.dumps(result, indent=2, ensure_ascii=False)) 
+    
+    return (json.dumps(result, indent=2, ensure_ascii=False))
 
 
 if __name__ == '__main__':
