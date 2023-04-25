@@ -17,7 +17,9 @@ def get_data():
      "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
     }
 
-    ethical_brands = ['larelaxed','wearwell','veneka','freespiritbrand',
+    ethical_brands = ['everlane', 'girlfriendcollective','nudiejeans',
+    'organicbasics','reformation','mudjeans','patagonia','naadam','eileen fisher','nisolo','allbirds','cariuma','rothys',
+    'larelaxed','wearwell','veneka','freespiritbrand',
     'etica','knickey','eclipse','harvestandmill','thestandardstich',
     'nube','triarchy','melissajoymanning','duchxfashion',
     'mariclaro','fairindigo','vegasrabbit',
@@ -60,8 +62,8 @@ def get_data():
     for i in google_shopping_data:
         current_thumbnail = i['thumbnail']
         current_link = i['link']
-        source = i['source']
-        if source.lower() in ethical_brands:
+        source = i['source'].lower().strip()
+        if source in ethical_brands:
             thumbnails.append(current_thumbnail)
             product_links.append(current_link)
 
