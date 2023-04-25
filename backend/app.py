@@ -8,15 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_data():
-    params = {
-     "q": "Striped cropped shirt",
-     "tbm" : "shop",
-     "location": "Austin, Texas, United States",
-     "hl": "en",
-     "gl": "us",
-     "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
-    }
-
+    test_list = ['everlane','girlfriendcollective','reformation']
     ethical_brands = ['everlane', 'girlfriendcollective','nudiejeans',
     'organicbasics','reformation','mudjeans','patagonia','naadam','eileen fisher','nisolo','allbirds','cariuma','rothys',
     'larelaxed','wearwell','veneka','freespiritbrand',
@@ -51,29 +43,51 @@ def get_data():
     'nightswim','thegoodtee','fairindigo']
 
 
-    search = GoogleSearch(params)
-    results = search.get_dict()
 
-    google_shopping_data = results["shopping_results"]
+    # params = {
+    #  "q": "Striped cropped shirt",
+    #  "tbm" : "shop",
+    #  "location": "Austin, Texas, United States",
+    #  "hl": "en",
+    #  "gl": "us",
+    #  "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
+    # }
+
+    # search = GoogleSearch(params)
+    # results = search.get_dict()
+
+    # google_shopping_data = results["shopping_results"]
 
     thumbnails = []
     product_links = []
+    #FIXME: It is inefficient (takes too long) and requires too many API calls, however we could argue that we 
+    # can pay for an opitimized option with serapapi for more API calls. 
+    for j in test_list:
+        current_brand = j + ' Clothing Brand'
+        params = {
+     "q": current_brand + " Striped cropped shirt",
+     "tbm" : "shop",
+     "location": "Austin, Texas, United States",
+     "hl": "en",
+     "gl": "us",
+     "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
+    }
+        search = GoogleSearch(params)
+        results = search.get_dict()
 
-    for i in google_shopping_data:
-        current_thumbnail = i['thumbnail']
-        current_link = i['link']
-        source = i['source'].lower().strip()
-        if source in ethical_brands:
-            thumbnails.append(current_thumbnail)
-            product_links.append(current_link)
+        google_shopping_data = results["shopping_results"]
+        for i in google_shopping_data:
+            current_thumbnail = i['thumbnail']
+            current_link = i['link']
+            source = i['source'].lower().strip()
+            if source in ethical_brands:
+                thumbnails.append(current_thumbnail)
+                product_links.append(current_link)
 
     print(json.dumps(product_links, indent=2, ensure_ascii=False)) 
-    #FIXME Test this to fix if it works. To test, input the top two list above this one into the data frame return statement
-    # print(json.dumps(google_shopping_data, indent=2, ensure_ascii=False)) 
-        
+    
     return (json.dumps(product_links, indent=2, ensure_ascii=False))
 
-    # Will most likely need a large list containing the most sustainable clothing brands OR a list containing non-sustainable clothes. (2 ways to do this)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)
