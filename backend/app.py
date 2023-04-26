@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_data():
-    test_list = ['everlane','girlfriendcollective','reformation']
+    test_list = ['everlane','reformation']
     ethical_brands = ['everlane', 'girlfriendcollective','nudiejeans',
     'organicbasics','reformation','mudjeans','patagonia','naadam','eileen fisher','nisolo','allbirds','cariuma','rothys',
     'larelaxed','wearwell','veneka','freespiritbrand',
