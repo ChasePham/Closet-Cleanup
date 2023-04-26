@@ -1,45 +1,35 @@
-// waiting/listening for a message from popup.js
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    // communication tree - extecuted on receiving a message from popup.js
-    if (request === 'dance_on') { // if the message from popup.js is 'dance_on'
-         // your functionality here - insert mushroom dance!
-        insertMushroom();  
-    }
+/*
+Conic gradients are not supported in all browsers (https://caniuse.com/#feat=css-conic-gradients), so this pen includes the CSS conic-gradient() polyfill by Lea Verou (https://leaverou.github.io/conic-gradient/)
+*/
 
-    // EXTRA CODE NOT COVERED IN WORKSHOP
-    // send a response back to popup.js that the message has been successfully received
-    sendResponse('success');
-    
+// Find al rating items
+const ratings = document.querySelector('.rating');
+console.log(ratings);
+
+// Iterate over all rating items
+ratings.forEach((rating) => {
+  // Get content and get score as an int
+  const ratingContent = rating.innerHTML;
+  const ratingScore = parseInt(ratingContent, 10);
+
+  // Define if the score is good, meh or bad according to its value
+  const scoreClass =
+    ratingScore < 40 ? "bad" : ratingScore < 60 ? "meh" : "good";
+
+  // Add score class to the rating
+  rating.classList.add(scoreClass);
+
+  // After adding the class, get its color
+  const ratingColor = window.getComputedStyle(rating).backgroundColor;
+
+  // Define the background gradient according to the score and color
+  const gradient = `background: conic-gradient(${ratingColor} ${ratingScore}%, transparent 0 100%)`;
+
+  // Set the gradient as the rating background
+  rating.setAttribute("style", gradient);
+
+  // Wrap the content in a tag to show it above the pseudo element that masks the bar
+  rating.innerHTML = `<span>${ratingScore} ${
+    ratingContent.indexOf("%") >= 0 ? "<small>%</small>" : ""
+  }</span>`;
 });
-
-// Function to insert the mushroom GIF
-function insertMushroom () {
-    // For testing purposes:
-    // alert("M u s h r o o m");
-
-    // store Mushroom GIF HTML in a variable called data
-    var data = '<iframe src="https://giphy.com/embed/Y4rBAwBrTOOggtksBK" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dance-happy-dancing-Y4rBAwBrTOOggtksBK">via GIPHY</a></p>'
-
-    // create an HTML <div> element to insert the GIF into
-    var mushroomBox = document.createElement('div');
-
-    // insert data into <div>.......</div>
-    mushroomBox.innerHTML = data; 
-
-    // insert the HTML element into the <body> of the current page
-    document.body.appendChild(mushroomBox);
-
-}
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    // communication tree - extecuted on receiving a message from popup.js
-    if (request === 'openDashboard') { // if the message from popup.js is 'dance_on'
-         // your functionality here - insert mushroom dance!
-        insertMushroom();  
-    }
-
-    // EXTRA CODE NOT COVERED IN WORKSHOP
-    // send a response back to popup.js that the message has been successfully received
-    sendResponse('success');
-    
-}); 

@@ -1,21 +1,62 @@
-<link rel="stylesheet" href="../css/popup.css">
+<link rel="stylesheet" href="../css/favorites.css">
 <script src="../js/popup.js"></script>
+<script src="../js/content.js"></script>
 <body style="width: 400px; height: 600px;">
     <!--navigation bar-->
-    <nav class = "navbar" class = "sticky">
-        <a class = "option"
-        href="popup.html">Home</a>
-        <a class = "option"
-        href="favorites.html">Favorites</a>
-        <a class = "option"
-        href="how-we-rate.html">How we Rate</a>
+    <nav>
         <div class="navbar">
-        <div class="dropdown">
-        </div>
-        </div>
-        </div>
-        </nav>
+          <div class="container nav-container">
+              <input class="checkbox" type="checkbox" name="" id="" />
+              <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+              </div>  
+            <div class="logo">
+              <img class = "logo-img" src = "assets/logo.png">
+            </div>
+            <div class="menu-items">
+              <img class = "white_logo" src = "assets/white_logo.png">
+              <li><a href="popup.html"><img class="menu_icon" src="assets/home_icon.png"> Home</a></li>
+              <li><a href="favorites.html"><img class="menu_icon" src="assets/favorites_icon.png"> Favorites</a></li>
+              <li><a href="how-we-rate.html"><img class="menu_icon" src="assets/how_we_rate_icon.png"> How We Rate</a></li>
+            </div>
+          </div>
+         </div>
+    </nav>
     <h1>Your Favorites</h1>
+    <main class="grid">
+        <figure>
+          <img src="https://pyxis.nymag.com/v1/imgs/a22/401/946e0da1207eaef5a417e5fd880b700c6b-BUCK-MASON-BlackSlubEasyCrewL.jpg" alt="Sample photo">
+          <figcaption class = "brand_name" id = "brand_1">Dedicated</figcaption>
+          <figcaption class = "price_caption" id = "price_1">$35</figcaption>
+        </figure>
+        <figure>
+          <img src="https://pyxis.nymag.com/v1/imgs/29d/b5e/6631dbd375c14b3a5b5f3fc7f4d673da04-tee-2.2x.rsquare.w600.jpg" alt="Sample photo">
+          <figcaption class = "brand_name" id = "brand_2">Dedicated</figcaption>
+          <figcaption class = "price_caption" id = "price_2">$35</figcaption>
+        </figure>
+        <figure>
+          <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F7c%2F02%2F7c0209854b55421c3371909da5b94906ed140613.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]" alt="Sample photo">
+          <figcaption class = "brand_name" id = "brand_3">Dedicated</figcaption>
+          <figcaption class = "price_caption" id = "price_3">$35</figcaption>
+        </figure>
+        <figure>
+          <img src="https://s2.r29static.com/bin/shop/059/x,80/2111017/image.jpg" alt="Sample photo">
+          <figcaption class = "brand_name" id = "brand_4">Dedicated</figcaption>
+          <figcaption class = "price_caption" id = "price_4">$35</figcaption> 
+        </figure>
+        <figure>
+          <img id = "image_op_5" src="https://img.buzzfeed.com/buzzfeed-static/static/2021-09/28/16/asset/c03358f1f5b0/sub-buzz-415-1632846068-4.jpg?crop=1495:1925;0,0" alt="Sample photo">
+          <figcaption class = "brand_name" id = "brand_5">Dedicated</figcaption>
+          <figcaption class = "price_caption" id = "price_5">$35</figcaption>
+        </figure>
+        <figure>
+          <img id = "image_op_6" src="https://www.refinery29.com/images/10305026.png" alt="Sample photo">
+          <figcaption class = "brand_name" id = "brand_6">Dedicated</figcaption>
+          <figcaption class = "price_caption"id = "price_6">$35</figcaption>
+        </figure>
+      </main>
     <style>
     </style>
 </body>

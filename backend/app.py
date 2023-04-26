@@ -60,6 +60,8 @@ def get_data():
 
     thumbnails = []
     product_links = []
+    source_name = []
+    price_nums = []
     #FIXME: It is inefficient (takes too long) and requires too many API calls, however we could argue that we 
     # can pay for an opitimized option with serapapi for more API calls. 
     for j in test_list:
@@ -81,9 +83,12 @@ def get_data():
             current_thumbnail = i['thumbnail']
             current_link = i['link']
             source = i['source'].lower().strip()
+            price = i['price']
             if source in ethical_brands:
                 thumbnails.append(current_thumbnail)
                 product_links.append(current_link)
+                source_name.append(source)
+                price_nums.append(price)
                 count += 1
                 if count == 3:
                     break
@@ -117,7 +122,7 @@ def get_data():
     
     # Return list format: First index are the thumbnails while the second index are the product links
     result_dict = {}
-    result = [thumbnails,product_links]
+    result = [thumbnails,product_links,source_name,price_nums]
     result_two = [thumbnails_two,product_links_two]
 
     # To Organize, we put the lists into dictionary
