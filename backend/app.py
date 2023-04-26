@@ -92,24 +92,39 @@ def get_data():
             "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
         }
 
-        search = GoogleSearch(params)
-        results = search.get_dict()
-        thumbnails_two = []
-        product_links_two = []
-        depop_data = results["organic_results"]
-        for i in depop_data:
-            current_thumbnail_two = i['title']
-            current_link_two = i['link']
-            thumbnails_two.append(current_thumbnail_two)
-            product_links_two.append(current_link_two)  
+
+    params = {
+        "q": "Striped cropped shirt",
+        "tbm" : "shop",
+        "location": "Austin, Texas, United States",
+        "hl": "en",
+        "gl": "us",
+        "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
+    }
+    search = GoogleSearch(params)
+    results = search.get_dict()
+    thumbnails_two = []
+    product_links_two = []
+    depop_data = results["organic_results"]
+    for i in depop_data:
+        current_thumbnail_two = i['title']
+        current_link_two = i['link']
+        thumbnails_two.append(current_thumbnail_two)
+        product_links_two.append(current_link_two)  
     
     # Return list format: First index are the thumbnails while the second index are the product links
+    result_dict = {}
     result = [thumbnails,product_links]
     result_two = [thumbnails_two,product_links_two]
-    print(json.dumps(result, indent=2, ensure_ascii=False)) 
-    print ("Second hand options")
-    print(json.dumps(result_two, indent=2, ensure_ascii=False)) 
-    return (json.dumps(result, indent=2, ensure_ascii=False))
+
+    # To Organize, we put the lists into dictionary
+    result_dict['result'] = result
+    result_dict['result_two'] = result_two
+
+    # print(json.dumps(result, indent=2, ensure_ascii=False)) 
+    # print ("Second hand options")
+    # print(json.dumps(result_two, indent=2, ensure_ascii=False)) 
+    return (json.dumps(result_dict, indent=2, ensure_ascii=False))
 
 
 if __name__ == '__main__':
