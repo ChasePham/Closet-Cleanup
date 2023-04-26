@@ -80,8 +80,11 @@ def get_data():
         google_shopping_data = results["shopping_results"]
         count = 0
         for i in google_shopping_data:
+            if 'source' not in i:
+                continue
             current_thumbnail = i['thumbnail']
             current_link = i['link']
+            print(i)
             source = i['source'].lower().strip()
             price = i['price']
             if source in ethical_brands:
