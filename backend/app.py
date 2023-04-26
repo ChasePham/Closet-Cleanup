@@ -70,12 +70,13 @@ def get_data():
             "location": "Austin, Texas, United States",
             "hl": "en",
             "gl": "us",
-            "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
+            "api_key": "8c06d8fadc2c651a8e3d8c0d5a0baf12dea102e98538fce593f4e777f3265347",
     }
         search = GoogleSearch(params)
         results = search.get_dict()
 
         google_shopping_data = results["shopping_results"]
+        count = 0
         for i in google_shopping_data:
             current_thumbnail = i['thumbnail']
             current_link = i['link']
@@ -83,34 +84,36 @@ def get_data():
             if source in ethical_brands:
                 thumbnails.append(current_thumbnail)
                 product_links.append(current_link)
-        #second hand option
-        query = "sustainable fashion site:depop.com"
-        params = {
-            "q": "site:depop.com " + query,
-            "gl": "us",
-            #"google_domain": "google.com",
-            "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
-        }
+                count += 1
+                if count == 3:
+                    break
 
 
+    #second hand option
+    query = "sustainable fashion striped cropped shirt"
     params = {
-        "q": "Striped cropped shirt",
-        "tbm" : "shop",
-        "location": "Austin, Texas, United States",
-        "hl": "en",
+        "q": "site:depop.com " + query,
         "gl": "us",
-        "api_key": "de13e5e6e842d938c52ef7697f1d26055cd17112dbb83081e9e4d619f34eca5e",
+        
+        #"google_domain": "google.com",
+        "api_key": "8c06d8fadc2c651a8e3d8c0d5a0baf12dea102e98538fce593f4e777f3265347",
     }
     search = GoogleSearch(params)
     results = search.get_dict()
     thumbnails_two = []
     product_links_two = []
     depop_data = results["organic_results"]
+    count = 0
     for i in depop_data:
-        current_thumbnail_two = i['title']
+        if 'thumbnail' not in i or 'link' not in i:
+            continue
+        current_thumbnail_two = i['thumbnail']
         current_link_two = i['link']
         thumbnails_two.append(current_thumbnail_two)
         product_links_two.append(current_link_two)  
+        count += 1
+        if count == 3:
+            break
     
     # Return list format: First index are the thumbnails while the second index are the product links
     result_dict = {}
@@ -125,6 +128,7 @@ def get_data():
     # print ("Second hand options")
     # print(json.dumps(result_two, indent=2, ensure_ascii=False)) 
     return (json.dumps(result_dict, indent=2, ensure_ascii=False))
+
 
 
 if __name__ == '__main__':
